@@ -1,0 +1,203 @@
+#-*- coding:UTF-8 -*-
+
+'''
+Created on 2014��2��12��
+
+@author: ting.liu
+'''
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+import os,time
+import unittest
+import HTMLTestRunner
+import unittest 
+import sys 
+import StringIO 
+import Means
+class Test(unittest.TestCase):
+    def setUp(self):
+        chromedriver="D:\Program Files (x86)\Chrome\chromedriver.exe"
+        os.environ["webdriver.chrome.driver"] = chromedriver
+        self.driver = webdriver.Chrome(chromedriver)
+        self.driver.implicitly_wait(30)
+        self.base_url = "http://192.168.1.20:9999"
+        self.verificationErrors = []
+    def test_AffiliateLink(self):
+        browser = self.driver
+        browser.get(self.base_url)
+        browser.maximize_window()
+        Means.login(browser, '0@cm.com', '123456')
+        WebDriverWait(browser, 5).until(lambda the_driver: browser.find_element_by_link_text("Dashboard").is_displayed())
+        browser.find_element_by_link_text("Dashboard").click()
+        browser.find_element_by_xpath("//html/body/div[2]/div[1]/div[1]/div[2]/table/tbody/tr[1]/td[1]/a").click()
+        print"检查页面是否跳转到：http://192.168.1.20:9999/affiliate/cm/dashboard_contract_request_assign.html" 
+        url='http://192.168.1.20:9999/affiliate/cm/dashboard_contract_request_assign.html'
+        url2=browser.current_url
+        if url==url2:
+            print"跳转的页面正确：http://192.168.1.20:9999/affiliate/cm/dashboard_contract_request_assign.html"
+        time.sleep(2)
+        browser.find_element_by_link_text("Dashboard").click()
+        time.sleep(2)
+        browser.find_element_by_xpath("html/body/div[2]/div[1]/div[1]/div[2]/table/tbody/tr[2]/td[1]/a").click()
+        url_contractre='http://192.168.1.20:9999/affiliate/CMAndCA/dashboard_request_list.html'
+        url2_contractre=browser.current_url
+        if url_contractre==url2_contractre:
+            print"跳转正确：http://192.168.1.20:9999/affiliate/CMAndCA/dashboard_request_list.html"
+        else:
+            print"点击contractrequest链接，页面跳转错误！---<BUG1>"
+        time.sleep(1)
+        da=browser.find_element_by_link_text("Dashboard")
+        print "点击的是dashboard页面 : %s" %(da.text)
+        da.click()
+        browser.find_element_by_xpath("html/body/div[2]/div[1]/div[1]/div[2]/table/tbody/tr[3]/td[1]/a").click()
+        time.sleep(1)
+        exceptionurl='http://192.168.1.20:9999/affiliate/CMAndCA/dashboard_exception_list.html'
+        if exceptionurl==browser.current_url:
+            print"点击dashboard页面中的excepiont之后，页面跳转正确！"
+        else:
+            print"点击dashboard页面中的exception链接之后，跳转页面错误！---<BUG2>"
+        time.sleep(1)
+        browser.find_element_by_link_text("Dashboard").click()
+        browser.find_element_by_xpath("html/body/div[2]/div[1]/div[1]/div[2]/table/tbody/tr[4]/td[1]/a").click()
+        followupcontracturl="http://192.168.1.20:9999/affiliate/CMAndCA/dashboard_contract_follow_up_list.html"
+        if followupcontracturl==browser.current_url:
+            print"点击dashboard页面中的followupcontract链接，页面跳转正确！"
+        else:
+            print"点击dashboard页面中的followupcontract链接，页面跳转错误！---<BUG3>"
+        time.sleep(1)
+        browser.find_element_by_link_text("Dashboard").click()
+        browser.find_element_by_xpath("html/body/div[2]/div[1]/div[3]/div[2]/table/tbody/tr[1]/td[1]/a").click()
+        insurance30daysurl="http://192.168.1.20:9999/affiliate/cmandca/report_current_insurance.html?date=0"
+        if insurance30daysurl==browser.current_url:
+            print"点击dashboard页面中的insuranceexpiring=30days链接，页面跳转正确！"
+        else:
+            print"点击dashboard页面中的insuranceexpirin=30days链接，页面跳转错误！---<BUG4>"
+        time.sleep(1)
+        browser.find_element_by_link_text("Dashboard").click()
+        browser.find_element_by_xpath("html/body/div[2]/div[1]/div[3]/div[2]/table/tbody/tr[2]/td[1]/a").click()
+        insurance60daysurl="http://192.168.1.20:9999/affiliate/cmandca/report_current_insurance.html?date=1"
+        if insurance60daysurl==browser.current_url:
+            print"点击dashboard页面中的insuranceexpiring=60days链接，页面跳转正确！"
+        else:
+            print"点击dashboard页面中的insuranceexpiring=60days链接，页面跳转错误！---<BUG5>"
+        time.sleep(1)
+        browser.find_element_by_link_text("Dashboard").click()
+        browser.find_element_by_xpath("html/body/div[2]/div[1]/div[3]/div[2]/table/tbody/tr[3]/td[1]/a").click()
+        insurance90daysurl="http://192.168.1.20:9999/affiliate/cmandca/report_current_insurance.html?date=2"
+        if insurance90daysurl==browser.current_url:
+            print"点击dashboard页面中的insuranceexpirting=90days链接，页面跳转正确！"
+        else:
+            print"点击dashboard页面中的insuranceexpirting=90days链接，页面跳转错误！---<BUG6>"
+        time.sleep(1)
+        browser.find_element_by_link_text("Dashboard").click()
+        browser.find_element_by_xpath("html/body/div[2]/div[1]/div[3]/div[2]/table/tbody/tr[4]/td[1]/a").click()
+        time.sleep(1)
+        insuranceexpiredurl="http://192.168.1.20:9999/affiliate/cmandca/report_current_insurance.html?date=3"
+        if insuranceexpiredurl==browser.current_url:
+            print"点击dashboard页面中的insuranceexpiration=expired链接，页面跳转正确！"
+        else:
+            print"点击dashboard页面中的insuranceexpiration=expired链接，页面跳转错误！---<BUG7>"
+        time.sleep(1)
+        browser.find_element_by_link_text("Dashboard").click()
+        browser.find_element_by_xpath("html/body/div[2]/div[1]/div[2]/div[1]/div[2]/a").click()
+        time.sleep(1)
+        caworkloadsummaryurl="http://192.168.1.20:9999/affiliate/cmandca/report_current_ca.html"
+        if caworkloadsummaryurl==browser.current_url:
+            print"点击dashboard页面中caworkload中的More按钮，页面跳转正确！"
+        else:
+            print"点击dashboard页面中caworkload中的More按钮，页面跳转错误！---<BUG8>"
+        time.sleep(1)
+        browser.find_element_by_link_text("Dashboard").click()
+        browser.find_element_by_xpath("html/body/div[2]/div[1]/div[4]/div[1]/div[2]/a").click()
+        time.sleep(1)
+        Contractcompliancestatusurl="http://192.168.1.20:9999/affiliate/cmandca/report_active_contract.html"
+        if Contractcompliancestatusurl==browser.current_url:
+            print"点击dashboard页面中的contract compliance status中的More按钮，页面跳转正确！"
+        else:
+            print"点击dashboard页面中的contract compliance status中的More按钮，页面跳转错误！---<BUG9>"
+        time.sleep(1)
+        browser.find_element_by_link_text("Dashboard").click()
+        browser.find_element_by_xpath("html/body/div[2]/div[1]/div[5]/div[1]/div[2]/a").click()
+        time.sleep(1)
+        affiliatestatussummary="http://192.168.1.20:9999/affiliate/cmandca/report_affiliate_status.html"
+        if affiliatestatussummary==browser.current_url:
+            print"点击dashboard页面中的affiliate status summary中的More按钮，页面跳转正确！"
+        else:
+            print"点击dashboard页面中的affiliate status summary中的More按钮，页面跳转错误！---<BUG10>"
+        time.sleep(1)
+        browser.find_element_by_xpath("//ul[@id='menu']/li[2]/a").click()
+        time.sleep(1)
+        browser.find_element_by_xpath("//table[@id='grid']/tbody/tr[1]/td[2]/div").click()
+        time.sleep(1)
+        browser.find_element_by_xpath("//ul[@id='subMenu']/li[2]/a").click()
+        time.sleep(1)
+        browser.find_element_by_xpath("//ul[@id='subMenu']/li[3]/a").click()
+        time.sleep(1)
+        browser.find_element_by_xpath("//ul[@id='subMenu']/li[4]/a").click()
+        time.sleep(1)
+        browser.find_element_by_xpath("//ul[@id='menu']/li[3]/a").click()
+        time.sleep(1)
+        browser.find_element_by_id("btnNew").click()
+        time.sleep(1)
+        browser.find_element_by_id("btnCancel").click()
+        time.sleep(1)
+        browser.find_element_by_xpath("//div[@id='grid']/tbody/tr[1]/td[1]/div").click()
+        time.sleep(1)
+        browser.find_element_by_id("btnCancel").click()
+        time.sleep(1)
+        browser.find_element_by_xpath("//ul[@id='menu']/li[4]/a").click()
+        time.sleep(1)
+        browser.find_element_by_id("btnException").click()
+        time.sleep(1)
+        browser.find_element_by_id("btnAll").click()
+        time.sleep(1)
+        browser.find_element_by_xpath("//ul[@id='menu']/li[5]/a").click()
+        time.sleep(1)
+        browser.find_element_by_xpath("//table[@id='list']/tbody/tr[1]/td[2]/div/a").click()
+        time.sleep(1)
+        browser.find_element_by_xpath("//ul[@id='menu']/li[5]/a").click()
+        time.sleep(1)
+        browser.find_element_by_xpath("//ul[@id='menu']/li[6]/a/span").click()
+        time.sleep(2)
+        te=browser.find_element_by_xpath("//ul[@id='menu']/li[6]/a/span")   
+        time.sleep(3)
+        webdriver.ActionChains(browser).move_to_element(te).perform()
+        time.sleep(3)
+        browser.find_element_by_xpath("//ul[@id='menu']/li[6]/ul/li[2]/a").click()
+        time.sleep(2)
+        browser.find_element_by_id("btnNew").click()
+        time.sleep(1)
+        browser.find_element_by_id("btnCancel").click()
+        time.sleep(1)
+        browser.find_element_by_xpath("//ul[@id='menu']/li[7]/a").click()
+        time.sleep(1)
+        reports=browser.find_element_by_xpath("html/body/div[2]/div/div[2]/div[1]/div/ul")
+        webdriver.ActionChains(browser).move_to_element(reports).perform()
+        time.sleep(2)
+        browser.find_element_by_xpath("html/body/div[2]/div/div[2]/div[1]/div/ul/li/ul/li[1]/a").click()
+        time.sleep(2)
+        browser.find_element_by_id("btnSearch").click()
+        time.sleep(2)
+        reportss=browser.find_element_by_xpath("html/body/div[2]/div/div[1]/div[1]/div/ul/li/span")
+        webdriver.ActionChains(browser).move_to_element(reportss).perform()
+        time.sleep(1)
+        browser.find_element_by_xpath("html/body/div[2]/div/div[1]/div[1]/div/ul/li/ul/li[2]/a").click()
+        print"ok %s" %(browser.current_url)
+             
+if __name__ == "__main__":
+    #import sys;sys.argv = ['', 'Test.testName']
+    testsuite=unittest.TestSuite()
+#testsuite.addTest(Test("setUp"))
+    testsuite.addTest(Test("test_AffiliateLink"))
+    #testsuite.addTest(Test("test_SurveyPM"))
+    filename='D:\\result.html'
+    fp=file(filename,'wb')
+    runner=HTMLTestRunner.HTMLTestRunner(
+           stream=fp,
+           title='testcase',
+           description='test report'
+           )
+ #   runner=unittest.TextTestRunner()
+    runner.run(testsuite)

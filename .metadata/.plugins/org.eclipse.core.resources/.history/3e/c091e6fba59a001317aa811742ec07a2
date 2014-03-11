@@ -1,0 +1,88 @@
+#coding=utf-8
+'''
+Created on 2014��2��21��
+
+@author: ting.liu
+'''
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+class affiliatedetail:
+    def affiiatedetail(self,browser):
+        return browser.find_element_by_xpath("//ul[@id='subMenu']/li[1]/a")
+    def Managers(self,browser):
+        return browser.find_element_by_xpath("//ul[@id='subMenu']/li[2]/a")
+    def Compliance(self,browser):
+        return browser.find_element_by_xpath("//ul[@id='subMenu']/li[3]/a")
+    def Document(self,browser):
+        return browser.find_element_by_xpath("//ul[@id='subMenu']/li[4]/a")
+    def Save(self,browser):
+        return browser.find_element_by_xpath("html/body/div[3]/div[1]/form/div[1]/button[1]")
+    def Cancel(self,browser):
+        return browser.find_element_by_xpath("html/body/div[3]/div[1]/form/div[1]/button[2]")
+    def DBAname(self,browser):
+        return browser.find_element_by_id("DBAName")
+    def LegalName(self,browser):
+        return browser.find_element_by_id("Name")
+    def EntityType(self,browser):
+        return browser.find_element_by_xpath("//div[@id='EntityType']/div[1]/input[1]")
+    def EntityTypeLLC(self,browser):
+        return browser.find_element_by_xpath("//div[@id='EntityType']/div[2]/ul/li[1]")
+    def EntityTypeLLP(self,browser):
+        return browser.find_element_by_xpath("//div[@id='EntityType']/div[2]/ul/li[2]")
+    def EntityTypeCorporation(self,browser):
+        return browser.find_element_by_xpath("//div[@id='EntityType']/div[2]/ul/li[3]")
+    def EntityTypeSolePro(self,browser):
+        return browser.find_element_by_xpath("//div[@id='EntityType']/div[2]/ul/li[4]")
+    def OtherName(self,browser):
+        return browser.find_element_by_id("OtherName")
+    def PayableName(self,browser):
+        return browser.find_element_by_id("PayableName")
+    def OfficePhone1(self,browser):
+        return browser.find_element_by_id("Phone_1")
+    def OfficePhone2(self,browser):
+        return browser.find_element_by_id("Phone_2")
+    def OfficePhone3(self,browser):
+        return browser.find_element_by_id("Phone_3")
+    def OfficePhone4(self,browser):
+        return browser.find_element_by_id("Phone_4")
+    def StateRegistered(self,browser):
+        return browser.find_element_by_xpath("//div[@id='StateRegistered']/div[1]/input[1]")
+    def StateRegisteredAL(self,browser):
+        return browser.find_element_by_xpath("//div[@id='StateRegistered']/div[2]/ul/li[2]")
+    def StateRegisteredAK(self,browser):
+        return browser.find_element_by_xpath("//div[@id='StateRegistered']/div[2]/ul/li[3]")
+    def StateRegisteredAS(self,browser):
+        return browser.find_element_by_xpath("//div[@id='StateRegistered']/div[2]/ul/li[4]")
+    def StateRegisteredAZ(self,browser):
+        return browser.find_element_by_xpath("//div[@id='StateRegistered']/div[2]/ul/li[4]")
+    def Fax1(self,browser):
+        return browser.find_element_by_id("Fax_1")
+    def Fax2(self,browser):
+        return browser.find_element_by_id("Fax_2")
+    def Fax3(self,browser):
+        return browser.find_element_by_id("Fax_3")   
+    def CompanyWebsite(self,browser):
+        return browser.find_element_by_id("Website")
+    def AddressLine1(self,browser):
+        return browser.find_element_by_id("Address_AddressLine1")
+    def AddressLine2(self,browser):
+        return browser.find_element_by_id("Address_AddressLine2")
+    def City(self,browser):
+        return browser.find_element_by_id("Address_City")
+    def State(self,browser):
+        return browser.find_element_by_xpath("//div[@id='Address_State']/div[1]/input[1]")
+    def StateAL(self,browser):
+        return browser.find_element_by_xpath("//div[@id='Address_State']/div[2]/ul/li[1]")
+    def StateAK(self,browser):
+        return browser.find_element_by_xpath("//div[@id='Address_State']/div[2]/ul/li[2]")
+    def StateAS(self,browser):
+        return browser.find_element_by_xpath("//div[@id='Address_State']/div[2]/ul/li[3]")
+    def Zip(self,browser):
+        return browser.find_element_by_id("Address_Zipcode")
+    def Country(self,browser):
+        return browser.find_element_by_id("Address_Country")
+     
+
+        

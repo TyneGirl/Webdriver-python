@@ -1,0 +1,21 @@
+#coding=utf-8
+'''
+Created on 2014��2��13��
+
+@author: ting.liu
+'''
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.keys import Keys
+import os,time
+import Means
+import logging
+import sys
+from PyQt4.QtGui import*
+a = QApplication(sys.argv)
+w = QWidget()  
+w.resize(320, 240)
+dr=webdriver.Firefox()
+dr.get("http://192.168.1.20:9999")
+
+Means.login(dr,'0@cm.com', '123456')

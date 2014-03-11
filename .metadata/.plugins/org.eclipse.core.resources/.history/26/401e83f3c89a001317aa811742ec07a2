@@ -1,0 +1,33 @@
+#coding=utf-8
+'''
+Created on 2014��2��20��
+
+@author: ting.liu
+'''
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+import os,time
+class loginpage:
+    def account(self,browser):
+        txtaccount=browser.find_element_by_id("txtAccount")
+        return browser.find_element_by_id("txtAccount") 
+    def psdaccount(self,browser):
+        return browser.find_element_by_id("txtPwd")
+    def rolechoseblue(self,browser):
+        return browser.find_element_by_xpath("html/body/div[1]/div[2]/div/div[1]/div[2]/div[1]/img")
+    def rolechosered(self,browser):
+        return browser.find_element_by_xpath("html/body/div[1]/div[2]/div/div[1]/div[2]/div[1]/img")
+
+    
+    
+        
+
+    
+        
+        
+    
+  
+
+        

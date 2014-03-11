@@ -1,0 +1,24 @@
+#coding=utf-8
+'''
+Created on 2014��2��24��
+
+@author: ting.liu
+'''
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.keys import Keys
+class MyClass(object):
+    def Claimdetailnumber(self,browser):
+        return browser.find_element_by_id("txtCClaimNo")
+    def emailaddress(self,browser):
+        return browser.find_element_by_id("txtCEmailAddress")
+    def alternativnumber(self,browser):
+        return browser.find_element_by_id("txtCAlternativeNumberOne")
+    def alternativenumber2(self,browser):
+        return browser.find_element_by_id("txtCAlternativeNumberTwo")
+    def alternativenumber3(self,browser):
+        return browser.find_element_by_id("txtCAlternativeNumberThree")
+    
+    def alternativenumber4(self,browser):
+        return browser.find_element_by_id("txtCAlternativeNumberFour")
+    

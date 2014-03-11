@@ -1,0 +1,37 @@
+#coding=utf-8
+'''
+Created on 2014��2��21��
+
+@author: ting.liu
+'''
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.keys import Keys
+import os,time
+import random
+import math,operator
+import Means
+import testlog
+import traceback
+from element_init import login_init,Pm_affiliate_search
+def newaffiliate():
+    getrole=login_init.loginpage()
+    getaffiliate=Pm_affiliate_search.affiliatesearch()
+    chromedriver="D:\Program Files (x86)\Chrome\chromedriver.exe"
+    os.environ["webdriver.chrome.driver"] = chromedriver
+    browser = webdriver.Chrome(chromedriver) # Get local session of firefox
+    browser.maximize_window()
+    browser.get("http://192.168.1.20:9999") # Load page
+    assert "login" in browser.title
+    browser.implicitly_wait(2)
+    Means.login(browser, '4@pc.com', '123456')
+    getrole.rolechosecm(browser).click()
+    getaffiliate.affiliatesearchlist(browser).click()
+    time.sleep(1)
+    getaffiliate.affiliateNew(browser).click()
+    time.sleep(1)
+    getaffiliate.Searchaffiliatename(browser).send_keys("test ok")
+newaffiliate()
+    
+    
+

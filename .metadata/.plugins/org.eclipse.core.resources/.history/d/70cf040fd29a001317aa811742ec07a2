@@ -1,0 +1,62 @@
+#coding=utf-8
+'''
+Created on 2014��2��21��
+
+@author: ting.liu
+'''
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.keys import Keys
+import os,time
+import random
+import math,operator
+import Means
+import testlog
+import traceback
+import unittest
+import HTMLTestRunner
+from element_init import login_init,Pm_affiliate_search,Pm_affiliateDetail
+class Test(unittest.TestCase):
+        def newaffiliate():
+            getrole=login_init.loginpage()
+            getaffiliate=Pm_affiliate_search.affiliatesearch()
+            affiliatedetail=Pm_affiliateDetail.affiliatedetail()
+            chromedriver="D:\Program Files (x86)\Chrome\chromedriver.exe"
+            os.environ["webdriver.chrome.driver"] = chromedriver
+            browser = webdriver.Chrome(chromedriver) # Get local session of firefox
+            browser.maximize_window()
+            browser.get("http://192.168.1.20:9999") # Load page
+            assert "login" in browser.title
+            browser.implicitly_wait(2)
+            Means.login(browser, '4@pc.com', '123456')
+            getrole.rolechosecm(browser).click()
+            getaffiliate.affiliatesearchlist(browser).click()
+            time.sleep(1)
+            getaffiliate.affiliateNew(browser).click()
+            assert "http://192.168.1.20:9999/affiliate/CommonPages/affiliate_list.html" +browser.current_url
+            affiliatedetail.LegalName(browser).send_keys("element test")
+            affiliatedetail.DBAname(browser).send_keys("DBA Name")
+            affiliatedetail.EntityType(browser).click()
+            time.sleep(1)
+            affiliatedetail.EntityTypeLLP(browser).click()   
+            affiliatedetail.State(browser).click()
+            time.sleep(1)
+            affiliatedetail.StateAS(browser).click()
+if __name__ == "__main__":
+    #import sys;sys.argv = ['', 'Test.testName']
+    testsuite=unittest.TestSuite()
+#testsuite.addTest(Test("setUp"))
+    testsuite.addTest(Test("newaffiliate"))
+    #testsuite.addTest(Test("test_SurveyPM"))
+    filename='D:\\result.html'
+    fp=file(filename,'wb')
+    runner=HTMLTestRunner.HTMLTestRunner(
+           stream=fp,
+           title='testcase',
+           description='test report'
+           )
+ #   runner=unittest.TextTestRunner()
+    runner.run(testsuite)
+    
+    
+

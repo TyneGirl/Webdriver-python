@@ -1,0 +1,17 @@
+'''
+Created on 2014Äê2ÔÂ24ÈÕ
+
+@author: ting.liu
+'''
+
+class MyClass(object):
+    '''
+    classdocs
+    '''
+
+
+    def __init__(self, params):
+        '''
+        Constructor
+        '''
+        

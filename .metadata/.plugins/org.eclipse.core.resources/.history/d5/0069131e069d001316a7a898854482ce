@@ -1,0 +1,14 @@
+#coding=utf-8
+'''
+Created on 2014��2��24��
+
+@author: ting.liu
+'''
+class Claimlist:
+    def claim(self,browser):
+        return browser.find_element_by_xpath("//ul[@id='menu']/li[3]/a")
+    def ClaimNew(self,browser):
+        return browser.find_element_by_id("btnNew")
+
+ 
+        

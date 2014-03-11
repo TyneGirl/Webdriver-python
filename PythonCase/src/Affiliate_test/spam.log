@@ -1,0 +1,112 @@
+2014-02-20 11:46:40,117 - simple_example - DEBUG - debug message
+2014-02-20 11:46:40,131 - simple_example - INFO - info message
+2014-02-20 11:46:40,132 - simple_example - WARNING - warn message
+2014-02-20 11:46:40,132 - simple_example - ERROR - error message
+2014-02-20 11:46:40,132 - simple_example - CRITICAL - critical message
+2014-02-20 14:01:54,601 - spam_application - INFO - creating an instance of auxiliary_module.Auxiliary
+2014-02-20 14:01:54,601 - spam_application.auxiliary.Auxiliary - INFO - creating an instance of Auxiliary
+2014-02-20 14:01:54,601 - spam_application - INFO - created an instance of auxiliary_module.Auxiliary
+2014-02-20 14:01:54,601 - spam_application - INFO - calling auxiliary_module.Auxiliary.do_something
+2014-02-20 14:01:54,601 - spam_application.auxiliary.Auxiliary - INFO - doing something
+2014-02-20 14:01:54,601 - spam_application.auxiliary.Auxiliary - INFO - done doing something
+2014-02-20 14:01:54,601 - spam_application - INFO - finished auxiliary_module.Auxiliary.do_something
+2014-02-20 14:01:54,601 - spam_application - INFO - calling auxiliary_module.some_function()
+2014-02-20 14:01:54,601 - spam_application.auxiliary - INFO - done .... 
+2014-02-20 14:01:54,601 - spam_application - INFO - done with auxiliary_module.some_function()
+2014-02-20 14:23:56,864 - spam/sys_log - INFO - it is good
+2014-02-20 14:23:56,864 - spam/sys_log - INFO - first 01
+2014-02-20 14:23:56,864 - spam/sys_log - INFO - second 02
+2014-02-20 14:23:56,864 - spam/sys_log - INFO - third 03
+2014-02-20 14:23:56,864 - spam/sys_log - INFO - four 04
+2014-02-20 14:23:56,864 - spam/sys_log - INFO - done with auxiliary_module.some_function()
+2014-02-20 14:24:55,914 - spam/sys_log - INFO - it is good
+2014-02-20 14:26:50,997 - spam/sys_log - INFO - erro
+2014-02-20 14:26:50,997 - spam/sys_log - INFO - good job
+2014-02-20 14:32:41,023 - spam/sys_log - INFO - 运行失败
+2014-02-20 14:32:41,023 - spam/sys_log - INFO - 控件没找到！
+2014-02-20 17:03:41,267 - spam/sys_log - INFO - 运行失败
+2014-02-20 17:03:41,289 - spam/sys_log - INFO - 控件没找到！
+2014-02-20 17:04:39,767 - spam/sys_log - INFO - 运行失败
+2014-02-20 17:04:39,767 - spam/sys_log - INFO - 控件没找到！
+2014-02-20 17:16:15,030 - spam/sys_log - INFO - 运行失败
+2014-02-20 17:16:15,030 - spam/sys_log - INFO - 控件没找到！
+2014-02-21 09:12:00,517 - spam/sys_log - INFO - 运行失败
+2014-02-21 09:12:00,517 - spam/sys_log - INFO - 控件没找到！
+2014-02-21 09:19:53,818 - spam/sys_log - INFO - 运行失败
+2014-02-21 09:19:53,818 - spam/sys_log - INFO - 控件没找到！Message: u'element not visible\n  (Session info: chrome=28.0.1500.72)\n  (Driver info: chromedriver=2.3,platform=Windows NT 6.1 SP1 x86_64)' 
+2014-02-21 09:29:13,523 - spam/sys_log - INFO - 运行失败
+2014-02-21 09:29:13,523 - spam/sys_log - INFO - 控件没找到！()
+2014-02-21 09:34:35,506 - spam/sys_log - INFO - 运行失败
+2014-02-21 09:34:35,506 - spam/sys_log - INFO - 控件没找到！Traceback (most recent call last):
+  File "E:\eclipse\PythonCase\src\Affiliate_test\New_Souring.py", line 91, in nessouring
+    browser.find_element_by_id("NewLeadButton").click()
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 59, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 369, in _execute
+    return self._parent.execute(command, params)
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 164, in execute
+    self.error_handler.check_response(response)
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 164, in check_response
+    raise exception_class(message, screen, stacktrace)
+ElementNotVisibleException: Message: u'element not visible\n  (Session info: chrome=28.0.1500.72)\n  (Driver info: chromedriver=2.3,platform=Windows NT 6.1 SP1 x86_64)' 
+
+2014-02-21 09:48:07,645 - spam/sys_log - INFO - 运行失败
+2014-02-21 09:48:07,645 - spam/sys_log - INFO - 控件没找到！Traceback (most recent call last):
+  File "E:\eclipse\PythonCase\src\Affiliate_test\New_Souring.py", line 91, in nessouring
+    browser.find_element_by_id("NewLeadButton").click()
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 59, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 369, in _execute
+    return self._parent.execute(command, params)
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 164, in execute
+    self.error_handler.check_response(response)
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 164, in check_response
+    raise exception_class(message, screen, stacktrace)
+ElementNotVisibleException: Message: u'element not visible\n  (Session info: chrome=28.0.1500.72)\n  (Driver info: chromedriver=2.3,platform=Windows NT 6.1 SP1 x86_64)' 
+
+2014-02-21 16:31:03,628 - spam/sys_log - INFO - 运行失败
+2014-02-21 16:31:03,628 - spam/sys_log - INFO - 控件没找到！Traceback (most recent call last):
+  File "E:\eclipse\PythonCase\src\Affiliate_test\New_affiliate.py", line 30, in newaffiliate
+    assert "login001" in browser.title
+AssertionError
+
+2014-02-24 11:32:47,134 - spam/sys_log - INFO - 运行失败
+2014-02-24 11:32:47,134 - spam/sys_log - INFO - 控件没找到！Traceback (most recent call last):
+  File "E:\eclipse\PythonCase\src\Affiliate_test\New_Souring.py", line 91, in nessouring
+    browser.find_element_by_id("NewLeadButton").click()
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 59, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 369, in _execute
+    return self._parent.execute(command, params)
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 164, in execute
+    self.error_handler.check_response(response)
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 164, in check_response
+    raise exception_class(message, screen, stacktrace)
+ElementNotVisibleException: Message: u'element not visible\n  (Session info: chrome=28.0.1500.72)\n  (Driver info: chromedriver=2.3,platform=Windows NT 6.1 SP1 x86_64)' 
+
+2014-02-24 16:52:19,431 - spam/sys_log - INFO - 运行失败
+2014-02-24 16:52:19,431 - spam/sys_log - INFO - 控件没找到！Traceback (most recent call last):
+  File "E:\eclipse\PythonCase\src\Affiliate_test\New_affiliate.py", line 35, in newaffiliate
+    assert "http://192.168.1.20:9999/affiliate/cm/dashboard_index.html" in browser.title
+AssertionError
+
+2014-02-24 16:54:29,438 - spam/sys_log - INFO - 运行失败
+2014-02-24 16:54:29,438 - spam/sys_log - INFO - 控件没找到！Traceback (most recent call last):
+  File "E:\eclipse\PythonCase\src\Affiliate_test\New_affiliate.py", line 40, in newaffiliate
+    assert "http://192.168.1.20:9999/affiliate/CommonPages/affiliate_list.html" in browser.current_url
+AssertionError
+
+2014-03-04 16:11:15,118 - spam/sys_log - INFO - 运行失败
+2014-03-04 16:11:15,118 - spam/sys_log - INFO - 控件没找到！Traceback (most recent call last):
+  File "E:\eclipse\PythonCase\src\Affiliate_test\New_Souring.py", line 93, in nessouring
+    browser.find_element_by_id("NewLeadButton").click()
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 59, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 369, in _execute
+    return self._parent.execute(command, params)
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 164, in execute
+    self.error_handler.check_response(response)
+  File "D:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 164, in check_response
+    raise exception_class(message, screen, stacktrace)
+ElementNotVisibleException: Message: u'element not visible\n  (Session info: chrome=28.0.1500.72)\n  (Driver info: chromedriver=2.3,platform=Windows NT 6.1 SP1 x86_64)' 
+
