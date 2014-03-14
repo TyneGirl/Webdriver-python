@@ -1,0 +1,107 @@
+#coding=utf-8
+'''
+Created on 2014年2月11号；
+
+@author: ting.liu
+
+'''
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+import os,time
+import unittest
+import HTMLTestRunner
+import unittest 
+import sys 
+import StringIO 
+class Test(unittest.TestCase):
+    def setUp(self):
+        chromedriver="D:\Program Files (x86)\Chrome\chromedriver.exe"
+        os.environ["webdriver.chrome.driver"] = chromedriver
+        self.driver = webdriver.Chrome(chromedriver)
+        self.driver.implicitly_wait(30)
+        self.base_url = "http://192.168.1.20:9999"
+        self.verificationErrors = []
+    def test_Surveyor(self):
+        browser = self.driver
+        browser.get(self.base_url)
+        browser.maximize_window()
+        browser.find_element_by_id("txtAccount").send_keys("tingting008_2013@126.com");
+        log=browser.find_element_by_id("txtPwd")
+        log.send_keys("123456" + Keys.RETURN)        
+        WebDriverWait(browser, 5).until(lambda the_driver: browser.find_element_by_link_text("Find Task").is_displayed())
+        browser.find_element_by_link_text("Find Task").click()
+        time.sleep(1)
+        browser.find_element_by_xpath("//div[@id='content']/div/div[5]/div/tbody/tr/td/div").click()
+        browser.find_element_by_id("btnScheduled").click()
+        browser.find_element_by_xpath("//div[@id='timechoose_confirm']/a").click()
+        alerttes=browser.switch_to_alert()
+        #print alerttes.text()
+        print "test"
+        alerttes.accept()
+        #alert.dismiss()
+        time.sleep(1)
+        test=browser.switch_to_alert()
+        test.accept()
+        time.sleep(1)
+        browser.find_element_by_link_text("My Task").click()
+        time.sleep(1)
+        browser.find_element_by_xpath("//div[@id='content']/div/div[3]/dl/dd[4]/a").click()
+        #b=browser.find_element_by_id("gallery-btnUploadPhoto")
+        #a=b.is_displayed()
+        #if a:
+        #b.click()
+        #browser.switch_to_frame("gallery-uploadPhotoAreaFrame")
+        #browser.find
+        browser.find_element_by_xpath("//div[@id='surveyItemsWrap']/div[1]/div[2]/button").click()
+# 输入下拉选择   
+        selects=browser.find_elements_by_tag_name("select")
+        #all_options=selects.find_elements_by_tag_name("option")
+        for Uselect in selects:
+            time.sleep(1)
+            Uselect.click()
+            Uselect.find_elements_by_tag_name("option")[1].click()
+            browser.implicitly_wait(2)
+            print"所有的下拉框成功被选中，执行正确！"  
+        #输入Text类型的文本   
+        texts=browser.find_elements_by_css_selector('input[type=text]')
+        print len(texts)
+        for Utext in texts:
+            Utext.send_keys("test text selenium !")
+        #输入TextAreas类型的文本
+        textar=browser.find_elements_by_xpath("//div[@id='surveyItemsWrap']/div[2]/div/div[4]/div[2]/div/span[2]/textarea")
+        print len(textar) 
+        for Utextareas in textar:
+            Utextareas.send_keys("test textareas slenium !")               
+        browser.implicitly_wait(2)
+        browser.find_element_by_xpath("//div[@id='surveyItemsWrap']/div/div[2]/button[2]").click()
+        time.sleep(3)
+        browser.find_element_by_xpath("//body/input").send_keys('F:\Img\2.jpg')
+        #js="var q=document.getElementByClassName('ts_bg alert');q.style.display='block';"
+# http://blog.chinaunix.net/uid-26235486-id-3362291.html    setAttribute(\"style\",\"display:block\      
+       # print "js"
+        #browser.execute_script(js)
+        
+        print "ok"
+  #  def tearDown(self):
+
+  #      self.driver.quit()
+
+   #     self.assertEqual([], self.verificationErrors)
+
+if __name__ == "__main__":
+    #import sys;sys.argv = ['', 'Test.testName']
+ SendEmailestsuite=unittest.TestSuite()
+#testsuite.addTest(Test("setUp"))
+  SendEmailstsuite.addTest(Test("test_Surveyor"))
+#testsuite.addTest(Test("tearDown")) SendEmail  #testsuite.addTest(Test("test_SurveyPSendEmail
+    filename='D:\\result.html'
+    fp=file(filename,'wb')
+    runner=HTMLTestRunner.HTMLTestRunner(
+           stream=fp,
+           title='testcase',
+           description='test report'
+           )
+ #   runner=unittest.TextTestRunner()
+    runner.run(testsuite)
